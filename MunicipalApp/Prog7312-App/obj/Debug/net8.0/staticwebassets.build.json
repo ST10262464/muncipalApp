@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lUij85TZvx5q6BVpZ7Xhgp6EfO0hWbScvSGwKPKUo/A=",
+  "Hash": "BcO1QgbCffzEqNydCZS65ZwC0f9477xLlQbKrn5I1gE=",
   "Source": "Prog7312-App",
   "BasePath": "_content/Prog7312-App",
   "Mode": "Default",
@@ -1233,6 +1233,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\55a51ca7-8d47-4bd7-8ccc-42e2e26204dc_Light Modern Textile Minimalism Desktop Wallpaper.png"
     },
     {
+      "Identity": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\75beec94-696c-4a71-a81a-42ffb9ca3e2e_WhatsApp Image 2025-11-10 at 13.10.38_9f2206c8.jpg",
+      "SourceId": "Prog7312-App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\",
+      "BasePath": "_content/Prog7312-App",
+      "RelativePath": "uploads/75beec94-696c-4a71-a81a-42ffb9ca3e2e_WhatsApp Image 2025-11-10 at 13.10.38_9f2206c8.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\75beec94-696c-4a71-a81a-42ffb9ca3e2e_WhatsApp Image 2025-11-10 at 13.10.38_9f2206c8.jpg"
+    },
+    {
       "Identity": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\8115f6c7-d9f0-4ab3-ad92-c69877d8a23b_Light Modern Textile Minimalism Desktop Wallpaper (1).png",
       "SourceId": "Prog7312-App",
       "SourceType": "Discovered",
@@ -1326,6 +1345,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\afd203b3-f2c6-48f7-86c1-9cb62c7b0ef9_Light Modern Textile Minimalism Desktop Wallpaper (1).png"
+    },
+    {
+      "Identity": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\b6fd1e7f-ba80-4f1f-84f8-68988b034702_carnations.jpg",
+      "SourceId": "Prog7312-App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\",
+      "BasePath": "_content/Prog7312-App",
+      "RelativePath": "uploads/b6fd1e7f-ba80-4f1f-84f8-68988b034702_carnations.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\b6fd1e7f-ba80-4f1f-84f8-68988b034702_carnations.jpg"
     },
     {
       "Identity": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\c0336999-e2f7-48a5-8ecc-feb3f57f3875_Light Modern Textile Minimalism Desktop Wallpaper (1).png",

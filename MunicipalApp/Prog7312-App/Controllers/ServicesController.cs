@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Prog7312_App.Models;
+using Prog7312_App.Models.DataStructures; // Import new namespace for custom structures
 
-  
 // Author: Microsoft Docs Contributors  
 // Reference: https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/actions
 
@@ -10,30 +10,72 @@ namespace Prog7312_App.Controllers
     public class ServicesController : Controller
     {
         private readonly ILogger<ServicesController> _logger;
-        private static List<ServiceRequest> _serviceRequests = new();
+        
+        // 1. CustomBinarySearchTree (BST) for efficient retrieval by ReferenceNumber (Tree requirement)
+        private static CustomBinarySearchTree<string, ServiceRequest> _serviceRequestTree = new();
+        
+        // 2. CustomPriorityQueue (Min-Heap) for efficient prioritization (Heap requirement)
+        private static CustomPriorityQueue<ServiceRequest> _priorityQueue = new();
+        
         private static int _nextId = 1;
 
         public ServicesController(ILogger<ServicesController> logger)
         {
             _logger = logger;
+            if (_serviceRequestTree.Count == 0)
+            {
+                SeedRequests(); // Populate initial data
+            }
         }
+        
+        // Helper method to seed initial data for testing the new data structures
+        private void SeedRequests()
+        {
+            // Utility: 1 (Highest), Roads: 2, Sanitation: 3, Safety: 4, Parks: 5 (Lowest)
+            AddRequestToStructures(new ServiceRequest { Id = _nextId++, Location = "Main Road", Category = "Roads", Description = "Large pothole in fast lane.", Priority = 2, Status = ServiceRequestStatus.InProgress });
+            AddRequestToStructures(new ServiceRequest { Id = _nextId++, Location = "Park Street 12", Category = "Sanitation", Description = "Weekly refuse collection missed.", Priority = 3, Status = ServiceRequestStatus.Submitted });
+            AddRequestToStructures(new ServiceRequest { Id = _nextId++, Location = "Suburbia Power Substation", Category = "Utilities", Description = "Power outage for 48 hours.", Priority = 1, Status = ServiceRequestStatus.Submitted });
+            AddRequestToStructures(new ServiceRequest { Id = _nextId++, Location = "Public Library", Category = "Public Safety", Description = "Graffiti on exterior walls.", Priority = 4, Status = ServiceRequestStatus.Resolved });
+        }
+        
+        private void AddRequestToStructures(ServiceRequest request)
+        {
+            // Set required fields for new requests (ReferenceNumber, CreatedAt)
+            if (string.IsNullOrEmpty(request.ReferenceNumber))
+            {
+                request.ReferenceNumber = $"SR{DateTime.Now:yyyyMMdd}{request.Id:D4}";
+                request.CreatedAt = DateTime.Now;
+            }
+            
+            _serviceRequestTree.Insert(request.ReferenceNumber, request);
+            _priorityQueue.Enqueue(request, request.Priority);
+        }
+
 
         public IActionResult ReportIssue()
         {
-            return View();
+            // Pass a default model with a priority value
+            return View(new ServiceRequest { Priority = 5 }); 
         }
 
         [HttpPost]
         public async Task<IActionResult> ReportIssue(ServiceRequest request, List<IFormFile> attachments)
         {
+            // Manually set priority based on category for demonstration purposes
+            request.Priority = request.Category.ToLower() switch
+            {
+                "utilities" => 1,
+                "roads" => 2,
+                "sanitation" => 3,
+                _ => 5
+            };
+
             if (ModelState.IsValid)
             {
                 request.Id = _nextId++;
-                request.ReferenceNumber = $"SR{DateTime.Now:yyyyMMdd}{request.Id:D4}";
-                request.CreatedAt = DateTime.Now;
                 request.SubmittedByEmail = HttpContext.Session.GetString("UserEmail");
 
-                // Handle file uploads
+                // Handle file uploads (logic preserved from original)
                 if (attachments != null && attachments.Count > 0)
                 {
                     var uploadsPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
@@ -56,18 +98,21 @@ namespace Prog7312_App.Controllers
                     }
                 }
 
-                _serviceRequests.Add(request);
+                // **Insertion into advanced data structures**
+                AddRequestToStructures(request);
 
                 TempData["SuccessMessage"] = $"Your service request has been submitted successfully. Reference number: {request.ReferenceNumber}";
-                return RedirectToAction("ReportSuccess", new { id = request.Id });
+                return RedirectToAction("ReportSuccess", new { referenceNumber = request.ReferenceNumber });
             }
 
             return View(request);
         }
 
-        public IActionResult ReportSuccess(int id)
+        // Updated signature/logic to use ReferenceNumber for efficient BST lookup
+        public IActionResult ReportSuccess(string referenceNumber)
         {
-            var request = _serviceRequests.FirstOrDefault(r => r.Id == id);
+            // Use the BST for efficient lookup by unique identifier (O(log n) average)
+            var request = _serviceRequestTree.Find(referenceNumber);
             if (request == null)
             {
                 return NotFound();
@@ -75,20 +120,72 @@ namespace Prog7312_App.Controllers
 
             return View(request);
         }
-
+        
+        // New action for looking up request by reference number (tracking requirement)
         public IActionResult GetRequestByReference(string referenceNumber)
         {
-            var request = _serviceRequests.FirstOrDefault(r => r.ReferenceNumber == referenceNumber);
+            var request = _serviceRequestTree.Find(referenceNumber);
             if (request != null)
             {
                 return View("ReportSuccess", request);
             }
-            return NotFound();
+            return NotFound(); 
         }
 
+        public IActionResult ViewRequests()
+        {
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            
+            // Get all requests using In-Order Traversal from BST for a sorted list
+            var allRequests = _serviceRequestTree.InOrderTraversal();
+            
+            if (!string.IsNullOrEmpty(userEmail))
+            {
+                // Filter requests for the logged-in user
+                var userRequests = allRequests.Where(r => r.SubmittedByEmail == userEmail).ToList();
+                ViewData["Title"] = "My Service Requests";
+                return View(userRequests);
+            }
+            
+            ViewData["Title"] = "All Submitted Requests (Sorted by Reference)"; 
+            return View(allRequests); 
+        }
+        
+        // New action to demonstrate Heap/Priority Queue usage
+        public IActionResult ViewPriorityRequests()
+        {
+            // Get all requests for a full snapshot
+            var allRequests = _serviceRequestTree.InOrderTraversal();
+            
+            // 1. Create a local queue and populate it to demonstrate priority sorting 
+            //    without permanently emptying the main static queue
+            var localQueue = new CustomPriorityQueue<ServiceRequest>();
+            foreach (var request in allRequests)
+            {
+                localQueue.Enqueue(request, request.Priority);
+            }
+            
+            // 2. Dequeue all to get them in priority order
+            var sortedList = new List<ServiceRequest>();
+            while (localQueue.TryDequeue(out ServiceRequest? request, out int priority))
+            {
+                // Null check for safety
+                if(request != null)
+                {
+                    sortedList.Add(request);
+                }
+            }
+            
+            ViewData["Title"] = "Priority Requests (Heap Demonstration)";
+            // Reuse the existing view for display
+            return View("ViewRequests", sortedList); 
+        }
+
+        // Retained or modified JSON actions (can be removed if not needed)
         public IActionResult GetRecentRequests(int count = 5)
         {
-            var recentRequests = _serviceRequests
+            var allRequests = _serviceRequestTree.InOrderTraversal();
+            var recentRequests = allRequests
                 .OrderByDescending(r => r.CreatedAt)
                 .Take(count)
                 .ToList();
@@ -97,20 +194,7 @@ namespace Prog7312_App.Controllers
 
         public IActionResult GetAllRequests()
         {
-            return Json(_serviceRequests);
+            return Json(_serviceRequestTree.InOrderTraversal());
         }
-
-        public IActionResult ViewRequests()
-        {
-            var userEmail = HttpContext.Session.GetString("UserEmail");
-            if (string.IsNullOrEmpty(userEmail))
-            {
-                return RedirectToAction("Login", "Account");
-            }
-
-            var userRequests = _serviceRequests.Where(r => r.SubmittedByEmail == userEmail).ToList();
-            return View(userRequests);
-        }
-
     }
 }

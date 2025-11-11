@@ -1024,6 +1024,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\55a51ca7-8d47-4bd7-8ccc-42e2e26204dc_Light Modern Textile Minimalism Desktop Wallpaper.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\75beec94-696c-4a71-a81a-42ffb9ca3e2e_WhatsApp Image 2025-11-10 at 13.10.38_9f2206c8.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Prog7312-App</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Prog7312-App</BasePath>
+      <RelativePath>uploads/75beec94-696c-4a71-a81a-42ffb9ca3e2e_WhatsApp Image 2025-11-10 at 13.10.38_9f2206c8.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\75beec94-696c-4a71-a81a-42ffb9ca3e2e_WhatsApp Image 2025-11-10 at 13.10.38_9f2206c8.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8115f6c7-d9f0-4ab3-ad92-c69877d8a23b_Light Modern Textile Minimalism Desktop Wallpaper (1).png))">
       <SourceType>Package</SourceType>
       <SourceId>Prog7312-App</SourceId>
@@ -1103,6 +1119,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\afd203b3-f2c6-48f7-86c1-9cb62c7b0ef9_Light Modern Textile Minimalism Desktop Wallpaper (1).png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b6fd1e7f-ba80-4f1f-84f8-68988b034702_carnations.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Prog7312-App</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Prog7312-App</BasePath>
+      <RelativePath>uploads/b6fd1e7f-ba80-4f1f-84f8-68988b034702_carnations.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b6fd1e7f-ba80-4f1f-84f8-68988b034702_carnations.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\c0336999-e2f7-48a5-8ecc-feb3f57f3875_Light Modern Textile Minimalism Desktop Wallpaper (1).png))">
       <SourceType>Package</SourceType>

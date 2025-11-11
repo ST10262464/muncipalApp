@@ -32,6 +32,10 @@ namespace Prog7312_App.Models
 
         [Display(Name = "Submitted By")]
         public string? SubmittedByEmail { get; set; }
+
+        // New Property for POE Part 3 (for Heap/PriorityQueue implementation)
+        // Lower number = higher priority (e.g., 1 is urgent, 5 is low)
+        public int Priority { get; set; } = 5; 
     }
 
     public enum ServiceRequestStatus
