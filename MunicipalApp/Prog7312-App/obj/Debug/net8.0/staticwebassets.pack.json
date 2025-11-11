@@ -1,0 +1,313 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\11121c42-f5e9-49e0-929a-63299be53239_carnations.jpg",
+      "PackagePath": "staticwebassets\\uploads\\11121c42-f5e9-49e0-929a-63299be53239_carnations.jpg"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\1acfacd3-21f9-4820-950b-0177f8889bec_Light Modern Textile Minimalism Desktop Wallpaper (1).png",
+      "PackagePath": "staticwebassets\\uploads\\1acfacd3-21f9-4820-950b-0177f8889bec_Light Modern Textile Minimalism Desktop Wallpaper (1).png"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\4c5cb9e0-a7a0-4e3e-a1ff-2a967e1e2693_carnations.jpg",
+      "PackagePath": "staticwebassets\\uploads\\4c5cb9e0-a7a0-4e3e-a1ff-2a967e1e2693_carnations.jpg"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\55a51ca7-8d47-4bd7-8ccc-42e2e26204dc_Light Modern Textile Minimalism Desktop Wallpaper.png",
+      "PackagePath": "staticwebassets\\uploads\\55a51ca7-8d47-4bd7-8ccc-42e2e26204dc_Light Modern Textile Minimalism Desktop Wallpaper.png"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\8115f6c7-d9f0-4ab3-ad92-c69877d8a23b_Light Modern Textile Minimalism Desktop Wallpaper (1).png",
+      "PackagePath": "staticwebassets\\uploads\\8115f6c7-d9f0-4ab3-ad92-c69877d8a23b_Light Modern Textile Minimalism Desktop Wallpaper (1).png"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\81f5029c-fa30-4261-aa72-63356516e9ff_Light Modern Textile Minimalism Desktop Wallpaper (1).png",
+      "PackagePath": "staticwebassets\\uploads\\81f5029c-fa30-4261-aa72-63356516e9ff_Light Modern Textile Minimalism Desktop Wallpaper (1).png"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\95c29371-f57f-4c95-93f8-ba107828170f_Light Modern Textile Minimalism Desktop Wallpaper (1).png",
+      "PackagePath": "staticwebassets\\uploads\\95c29371-f57f-4c95-93f8-ba107828170f_Light Modern Textile Minimalism Desktop Wallpaper (1).png"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\afb94889-cc47-43db-b66c-cc0eb36440e0_Light Modern Textile Minimalism Desktop Wallpaper (1).png",
+      "PackagePath": "staticwebassets\\uploads\\afb94889-cc47-43db-b66c-cc0eb36440e0_Light Modern Textile Minimalism Desktop Wallpaper (1).png"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\afd203b3-f2c6-48f7-86c1-9cb62c7b0ef9_Light Modern Textile Minimalism Desktop Wallpaper (1).png",
+      "PackagePath": "staticwebassets\\uploads\\afd203b3-f2c6-48f7-86c1-9cb62c7b0ef9_Light Modern Textile Minimalism Desktop Wallpaper (1).png"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\c0336999-e2f7-48a5-8ecc-feb3f57f3875_Light Modern Textile Minimalism Desktop Wallpaper (1).png",
+      "PackagePath": "staticwebassets\\uploads\\c0336999-e2f7-48a5-8ecc-feb3f57f3875_Light Modern Textile Minimalism Desktop Wallpaper (1).png"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\d32c3641-ee4f-48b8-b8eb-c21f89336fff_accounts.png",
+      "PackagePath": "staticwebassets\\uploads\\d32c3641-ee4f-48b8-b8eb-c21f89336fff_accounts.png"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\d39f099e-5474-4914-b323-c3e35c8c45f3_Light Modern Textile Minimalism Desktop Wallpaper (1).png",
+      "PackagePath": "staticwebassets\\uploads\\d39f099e-5474-4914-b323-c3e35c8c45f3_Light Modern Textile Minimalism Desktop Wallpaper (1).png"
+    },
+    {
+      "Id": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\wwwroot\\uploads\\ee7784da-35b4-4c91-b1bb-ce295322a008_Light Modern Textile Minimalism Desktop Wallpaper (1).png",
+      "PackagePath": "staticwebassets\\uploads\\ee7784da-35b4-4c91-b1bb-ce295322a008_Light Modern Textile Minimalism Desktop Wallpaper (1).png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Prog7312-App.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Prog7312-App.props",
+      "PackagePath": "build\\Prog7312-App.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Prog7312-App.props",
+      "PackagePath": "buildMultiTargeting\\Prog7312-App.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Prog7312-App.props",
+      "PackagePath": "buildTransitive\\Prog7312-App.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

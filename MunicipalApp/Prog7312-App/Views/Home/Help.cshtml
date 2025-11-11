@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Help & Support";
+}
+<!-- Razor View for Municipal Services Portal homepage with announcements and services.
+     Author: Microsoft Docs Contributors
+     Reference: https://learn.microsoft.com/en-us/aspnet/core/mvc/views/overview -->
+     
+<main class="min-h-screen bg-gray-50">
+    <!-- Header Section -->
+    <section class="bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-8">
+            <h1 class="text-3xl text-gray-900 mb-2">Help & Support</h1>
+            <p class="text-gray-600">Get assistance and find answers to common questions</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-12">
+                <h2 class="text-xl text-gray-900 mb-4">Help Center</h2>
+                <p class="text-gray-600">Support features and documentation will be available here soon.</p>
+                
+                <div class="mt-8">
+                    <a href="@Url.Action("Index", "Home")" 
+                       class="inline-flex items-center px-6 py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors font-medium">
+                        Return to Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

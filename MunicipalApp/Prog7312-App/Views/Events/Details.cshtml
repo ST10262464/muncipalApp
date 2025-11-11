@@ -1,0 +1,277 @@
+@model Prog7312_App.Models.Event
+@{
+    ViewData["Title"] = Model.Title;
+    var priorityColor = Model.Priority == 1 ? "red" : Model.Priority == 2 ? "yellow" : "green";
+    var priorityText = Model.Priority == 1 ? "High Priority" : Model.Priority == 2 ? "Medium Priority" : "Normal Priority";
+}
+
+<!-- Breadcrumb -->
+<nav class="bg-gray-100 py-3">
+    <div class="max-w-7xl mx-auto px-6">
+        <ol class="flex items-center space-x-2 text-sm">
+            <li>
+                <a href="@Url.Action("Index", "Home")" class="text-blue-600 hover:text-blue-800">Home</a>
+            </li>
+            <li class="text-gray-500">/</li>
+            <li>
+                <a href="@Url.Action("Index", "Events")" class="text-blue-600 hover:text-blue-800">Events</a>
+            </li>
+            <li class="text-gray-500">/</li>
+            <li class="text-gray-700">@Model.Title</li>
+        </ol>
+    </div>
+</nav>
+
+<!-- Event Details -->
+<section class="py-12 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-blue-800 to-blue-900 text-white p-8">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="inline-block px-3 py-1 bg-white bg-opacity-20 rounded-lg text-sm font-medium">
+                                @Model.Category
+                            </span>
+                            <span class="inline-block px-3 py-1 bg-@(priorityColor)-500 text-white rounded-lg text-sm font-medium">
+                                @priorityText
+                            </span>
+                            @if (Model.IsFeatured)
+                            {
+                                <span class="inline-block px-3 py-1 bg-yellow-400 text-yellow-900 rounded-lg text-sm font-medium">
+                                    ⭐ Featured Event
+                                </span>
+                            }
+                        </div>
+                        <h1 class="text-3xl md:text-4xl font-bold mb-2">@Model.Title</h1>
+                        @if (!string.IsNullOrEmpty(Model.Organizer))
+                        {
+                            <p class="text-teal-100 text-lg">Organized by @Model.Organizer</p>
+                        }
+                    </div>
+                </div>
+
+                <!-- Key Info Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <!-- Date Card -->
+                    <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                        <div class="flex items-center text-teal-100 mb-2">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span class="text-sm font-medium">Date & Time</span>
+                        </div>
+                        <p class="text-white font-semibold">@Model.EventDate.ToString("MMMM dd, yyyy")</p>
+                        <p class="text-teal-100 text-sm">@Model.EventDate.ToString("h:mm tt")</p>
+                        @if (Model.EndDate.HasValue)
+                        {
+                            <p class="text-teal-100 text-sm mt-1">Until: @Model.EndDate.Value.ToString("MMM dd, yyyy")</p>
+                        }
+                    </div>
+
+                    <!-- Location Card -->
+                    <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                        <div class="flex items-center text-teal-100 mb-2">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span class="text-sm font-medium">Location</span>
+                        </div>
+                        <p class="text-white font-semibold">@Model.Location</p>
+                    </div>
+
+                    <!-- Views Card -->
+                    <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                        <div class="flex items-center text-teal-100 mb-2">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
+                            <span class="text-sm font-medium">Interest</span>
+                        </div>
+                        <p class="text-white font-semibold">@Model.ViewCount views</p>
+                        <p class="text-teal-100 text-sm">People interested</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-8">
+                <!-- Description -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Event Description
+                    </h2>
+                    <div class="prose max-w-none text-gray-700 leading-relaxed">
+                        <p>@Model.Description</p>
+                    </div>
+                </div>
+
+                <!-- Tags -->
+                @if (Model.Tags.Count > 0)
+                {
+                    <div class="mb-8">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Tags</h3>
+                        <div class="flex flex-wrap gap-2">
+                            @for (int i = 0; i < Model.Tags.Count; i++)
+                            {
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                                    #@Model.Tags[i]
+                                </span>
+                            }
+                        </div>
+                    </div>
+                }
+
+                <!-- Event Details Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Event Information</h3>
+                        <dl class="space-y-3">
+                            <div>
+                                <dt class="text-sm font-medium text-gray-500">Category</dt>
+                                <dd class="text-base text-gray-900">@Model.Category</dd>
+                            </div>
+                            <div>
+                                <dt class="text-sm font-medium text-gray-500">Priority Level</dt>
+                                <dd class="text-base text-gray-900">@priorityText</dd>
+                            </div>
+                            @if (!string.IsNullOrEmpty(Model.Organizer))
+                            {
+                                <div>
+                                    <dt class="text-sm font-medium text-gray-500">Organizer</dt>
+                                    <dd class="text-base text-gray-900">@Model.Organizer</dd>
+                                </div>
+                            }
+                            <div>
+                                <dt class="text-sm font-medium text-gray-500">Posted On</dt>
+                                <dd class="text-base text-gray-900">@Model.CreatedDate.ToString("MMMM dd, yyyy")</dd>
+                            </div>
+                        </dl>
+                    </div>
+
+                    <div class="bg-blue-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+                        <div class="space-y-3">
+                            <button class="w-full px-4 py-3 bg-blue-800 text-white rounded-lg hover:bg-blue-900 transition-colors font-medium flex items-center justify-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                                </svg>
+                                Save Event
+                            </button>
+                            <button class="w-full px-4 py-3 bg-white border-2 border-blue-800 text-blue-800 rounded-lg hover:bg-blue-50 transition-colors font-medium flex items-center justify-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+                                </svg>
+                                Share Event
+                            </button>
+                            <button class="w-full px-4 py-3 bg-white border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium flex items-center justify-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                Add to Calendar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Time Until Event -->
+                @{
+                    var daysUntil = (Model.EventDate - DateTime.Now).Days;
+                    var timeUntil = Model.EventDate - DateTime.Now;
+                }
+                @if (daysUntil >= 0)
+                {
+                    <div class="bg-gradient-to-r from-green-50 to-blue-50 border-l-4 border-green-500 p-6 rounded-lg mb-8">
+                        <div class="flex items-center">
+                            <svg class="w-8 h-8 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">
+                                    @if (daysUntil == 0)
+                                    {
+                                        <text>Event is Today!</text>
+                                    }
+                                    else if (daysUntil == 1)
+                                    {
+                                        <text>Event is Tomorrow!</text>
+                                    }
+                                    else
+                                    {
+                                        <text>Event starts in @daysUntil days</text>
+                                    }
+                                </h3>
+                                <p class="text-gray-600">
+                                    @if (timeUntil.TotalHours < 24)
+                                    {
+                                        <text>Starting in approximately @((int)timeUntil.TotalHours) hours</text>
+                                    }
+                                    else
+                                    {
+                                        <text>Mark your calendar and don't miss out!</text>
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <!-- Navigation Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="@Url.Action("Index", "Events")" 
+                       class="flex-1 px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors font-medium text-center">
+                        <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        Back to All Events
+                    </a>
+                    <a href="@Url.Action("Category", "Events", new { category = Model.Category })" 
+                       class="flex-1 px-6 py-3 bg-blue-800 text-white rounded-lg hover:bg-blue-900 transition-colors font-medium text-center">
+                        More @Model.Category Events
+                        <svg class="w-5 h-5 inline-block ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="mt-8 bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Need More Information?</h3>
+            <p class="text-gray-600 mb-4">
+                For questions about this event, please contact the organizer or visit our municipal offices.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Phone</p>
+                        <p class="text-gray-900 font-medium">0860 111 911</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Email</p>
+                        <p class="text-gray-900 font-medium">events@municipality.gov.za</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

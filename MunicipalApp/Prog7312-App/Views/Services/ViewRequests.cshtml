@@ -1,0 +1,138 @@
+@model List<Prog7312_App.Models.ServiceRequest>
+@{
+    ViewData["Title"] = "My Service Requests";
+}
+
+<div class="max-w-7xl mx-auto px-6 py-8">
+    <!-- Header Section -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">My Service Requests</h1>
+        <p class="text-gray-600">View and track all your submitted service requests</p>
+    </div>
+
+    @if (Model.Count == 0)
+    {
+        <!-- Empty State -->
+        <div class="text-center py-16">
+            <div class="mx-auto h-24 w-24 text-gray-400 mb-4">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+            </div>
+            <h3 class="text-lg font-medium text-gray-900 mb-2">No service requests found</h3>
+            <p class="text-gray-500 mb-6">You haven't submitted any service requests yet.</p>
+            <a href="@Url.Action("ReportIssue", "Services")" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                </svg>
+                Submit Your First Request
+            </a>
+        </div>
+    }
+    else
+    {
+        <!-- Requests Grid -->
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                var request = Model[i];
+                <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+                    <!-- Status Badge -->
+                    <div class="px-6 py-4 border-b border-gray-200">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-medium text-gray-500">@request.ReferenceNumber</span>
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+                                @(request.Status == Prog7312_App.Models.ServiceRequestStatus.Submitted ? "bg-yellow-100 text-yellow-800" :
+                                  request.Status == Prog7312_App.Models.ServiceRequestStatus.InProgress ? "bg-blue-100 text-blue-800" :
+                                  request.Status == Prog7312_App.Models.ServiceRequestStatus.Resolved ? "bg-green-100 text-green-800" :
+                                  "bg-gray-100 text-gray-800")">
+                                @request.Status
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Request Details -->
+                    <div class="px-6 py-4">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">@request.Category</h3>
+                        <p class="text-sm text-gray-600 mb-3">
+                            <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            @request.Location
+                        </p>
+                        <p class="text-gray-700 text-sm mb-4 line-clamp-3">@request.Description</p>
+                        
+                        <!-- Attachments -->
+                        @if (request.AttachmentPaths.Count > 0)
+                        {
+                            <div class="mb-4">
+                                <p class="text-xs text-gray-500 mb-2">
+                                    <svg class="w-3 h-3 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
+                                    </svg>
+                                    @request.AttachmentPaths.Count attachment(s)
+                                </p>
+                            </div>
+                        }
+                        
+                        <!-- Date -->
+                        <div class="flex items-center text-xs text-gray-500">
+                            <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            Submitted on @request.CreatedAt.ToString("MMM dd, yyyy 'at' h:mm tt")
+                        </div>
+                    </div>
+
+                    <!-- Action Footer -->
+                    <div class="px-6 py-3 bg-gray-50 border-t border-gray-200">
+                        <button onclick="viewRequestDetails('@request.ReferenceNumber')" 
+                                class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- Summary Stats -->
+        <div class="mt-8 bg-gray-50 rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Request Summary</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-blue-600">@Model.Count</div>
+                    <div class="text-sm text-gray-600">Total Requests</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-yellow-600">@Model.Where(r => r.Status == Prog7312_App.Models.ServiceRequestStatus.Submitted).Count()</div>
+                    <div class="text-sm text-gray-600">Submitted</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-blue-600">@Model.Where(r => r.Status == Prog7312_App.Models.ServiceRequestStatus.InProgress).Count()</div>
+                    <div class="text-sm text-gray-600">In Progress</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-green-600">@Model.Where(r => r.Status == Prog7312_App.Models.ServiceRequestStatus.Resolved).Count()</div>
+                    <div class="text-sm text-gray-600">Resolved</div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+function viewRequestDetails(referenceNumber) {
+    // You can implement a modal or redirect to a detailed view
+    alert('Reference Number: ' + referenceNumber + '\n\nDetailed view functionality can be implemented here.');
+}
+</script>
+
+<style>
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+</style>

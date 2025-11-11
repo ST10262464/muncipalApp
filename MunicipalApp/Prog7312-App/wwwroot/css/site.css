@@ -1,0 +1,84 @@
+/* Base sizing */
+html { font-size: 14px; }
+@media (min-width: 768px) { html { font-size: 16px; } }
+
+/* Root theme variables - neutral palette (no AI blue) */
+:root {
+  --ms-bg: #f7f7f8;            /* neutral-50 */
+  --ms-surface: #ffffff;       /* white */
+  --ms-text: #111827;          /* gray-900 */
+  --ms-subtext: #6b7280;       /* gray-500 */
+  --ms-muted: #9ca3af;         /* gray-400 */
+  --ms-border: #e5e7eb;        /* gray-200 */
+  --ms-elevated: #f3f4f6;      /* gray-100 */
+  --ms-brand: #111827;         /* charcoal instead of blue */
+  --ms-brand-weak: #374151;    /* gray-700 */
+  --ms-accent: #dc2626;        /* red-600 for highlights */
+}
+
+html { position: relative; min-height: 100%; }
+body { margin: 0; background: var(--ms-bg); color: var(--ms-text); }
+
+/* Header */
+.ms-header { background: var(--ms-brand); color: #fff; }
+.ms-container { max-width: 1280px; margin-inline: auto; }
+.logo-tile { width: 48px; height: 48px; background: #fff; border-radius: 10px; }
+.logo-tile.small { width: 40px; height: 40px; }
+.logo-glyph { display: inline-block; width: 22px; height: 22px; background: var(--ms-brand); mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M3 10h18v10H3zM2 8l10-6 10 6H2z"/></svg>') no-repeat center / contain; -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M3 10h18v10H3zM2 8l10-6 10 6H2z"/></svg>') no-repeat center / contain; }
+.brand-title { color: #fff; font-weight: 600; }
+.brand-subtitle { color: #d1d5db; }
+
+.ms-nav-btn { color: #e5e7eb; text-decoration: none; padding: .5rem .75rem; border-radius: .5rem; border: 1px solid transparent; font-weight: 500; }
+.ms-nav-btn:hover { background: #1f2937; color: #fff; }
+.ms-nav-btn.active { background: #1f2937; color: #fff; border-color: #374151; }
+.ms-nav-btn.disabled { opacity: .6; cursor: not-allowed; }
+
+.ms-mobile-toggle { filter: invert(1); }
+.ms-nav-item { color: #e5e7eb; padding: .5rem 0; }
+.ms-nav-item.disabled { opacity: .6; }
+
+/* Footer */
+.ms-footer { background: #0f172a; color: #fff; }
+.ms-footer .link-light { color: #e5e7eb; }
+.ms-footer .link-light:hover { color: #fff; }
+.ms-footer .link-secondary { color: #9ca3af; }
+.ms-footer .link-secondary:hover { color: #e5e7eb; }
+.ms-footer .ms-footer-links li { margin-bottom: .35rem; }
+.max-w-md { max-width: 28rem; }
+
+/* Hero (Dashboard) */
+.hero { background: linear-gradient(90deg, #111827, #0b1220); color: #fff; }
+.hero-sub { color: #d1d5db; }
+.hero .btn-primary { background: #ffffff; color: var(--ms-brand); border: 1px solid var(--ms-border); }
+.hero .btn-primary:hover { background: var(--ms-elevated); }
+
+/* Cards grid */
+.ms-section { padding-block: 4rem; }
+.ms-card { background: var(--ms-surface); border: 1px solid var(--ms-border); border-radius: .75rem; box-shadow: 0 1px 2px rgba(0,0,0,.05); }
+.ms-card.padded { padding: 1rem; }
+.ms-card-header { padding: 1rem 1rem 0; }
+.ms-card-title { font-size: 1rem; font-weight: 600; color: var(--ms-text); }
+.ms-card-desc { color: var(--ms-subtext); font-size: .95rem; }
+.ms-card-content { padding: 1rem; }
+
+/* Quick service tiles */
+.qs-tile { transition: transform .2s ease, box-shadow .2s ease; border-radius: .75rem; cursor: pointer; }
+.qs-tile:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+.qs-disabled { cursor: not-allowed; }
+.qs-bg-urgent { background: var(--ms-accent); color: #fff; border: 1px solid #fecaca; box-shadow: 0 0 0 2px rgba(252,165,165,.5) inset; }
+.qs-bg-muted { background: #e5e7eb; color: #6b7280; border: 1px dashed #d1d5db; }
+.badge { display: inline-block; padding: .25rem .5rem; font-size: .75rem; border-radius: 9999px; }
+.badge-available { background: #fff; color: var(--ms-accent); font-weight: 600; }
+.badge-soon { background: #9ca3af; color: #fff; }
+
+/* Utilities */
+.text-secondary { color: var(--ms-subtext); }
+.text-muted { color: var(--ms-muted); }
+.text-neutral-900 { color: var(--ms-text); }
+.bg-neutral-50 { background: var(--ms-bg); }
+.max-h-80 { max-height: 20rem; }
+.overflow-y-auto { overflow-y: auto; }
+/* keep Bootstrap focus styles but in neutral tone */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #6b7280;
+}
