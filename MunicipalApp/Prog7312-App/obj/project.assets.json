@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\Prog7312-App.csproj",
+      "projectUniqueName": "C:\\Users\\spraw\\OneDrive\\Desktop\\muncipalApp\\MunicipalApp\\Prog7312-App\\Prog7312-App.csproj",
       "projectName": "Prog7312-App",
-      "projectPath": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\Prog7312-App.csproj",
+      "projectPath": "C:\\Users\\spraw\\OneDrive\\Desktop\\muncipalApp\\MunicipalApp\\Prog7312-App\\Prog7312-App.csproj",
       "packagesPath": "C:\\Users\\spraw\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\spraw\\OneDrive\\Desktop\\MunicipalApp\\Prog7312-App\\obj\\",
+      "outputPath": "C:\\Users\\spraw\\OneDrive\\Desktop\\muncipalApp\\MunicipalApp\\Prog7312-App\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
