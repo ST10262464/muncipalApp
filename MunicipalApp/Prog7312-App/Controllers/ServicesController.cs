@@ -10,8 +10,8 @@ namespace Prog7312_App.Controllers
     {
         private readonly ILogger<ServicesController> _logger;
         
-        // 1. CustomBinarySearchTree (BST) for efficient retrieval by ReferenceNumber (Tree requirement)
-        private static CustomBinarySearchTree<string, ServiceRequest> _serviceRequestTree = new();
+        // 1. CustomAVLTree (Self-Balancing Tree) for efficient O(log n) retrieval by ReferenceNumber (Advanced Tree requirement)
+        private static CustomAVLTree<string, ServiceRequest> _serviceRequestTree = new();
         
         // 2. CustomPriorityQueue (Min-Heap) for efficient prioritization (Heap requirement)
         private static CustomPriorityQueue<ServiceRequest> _priorityQueue = new();
@@ -28,6 +28,8 @@ namespace Prog7312_App.Controllers
         public ServicesController(ILogger<ServicesController> logger)
         {
             _logger = logger;
+            // Note: AVL Tree implementation needs to be handled correctly to populate the 'Count'
+            // For now, checking the Count property works for either BST or AVL.
             if (_serviceRequestTree.Count == 0)
             {
                 SeedRequests(); 
@@ -68,7 +70,10 @@ namespace Prog7312_App.Controllers
                 request.CreatedAt = DateTime.Now;
             }
             
+            // AVL Tree Insert: Efficient tracking of Service Requests O(log n)
             _serviceRequestTree.Insert(request.ReferenceNumber, request);
+            
+            // Priority Queue Enqueue: Prioritize service tasks O(log n)
             _priorityQueue.Enqueue(request, request.Priority);
             
             // Add new reported location to the graph for potential future routing
@@ -96,6 +101,8 @@ namespace Prog7312_App.Controllers
             if (ModelState.IsValid)
             {
                 request.Id = _nextId++;
+                // Check if HttpContext.Session.GetString is available/used for user tracking
+                // If not, this line might need adjustment based on your actual authentication
                 request.SubmittedByEmail = HttpContext.Session.GetString("UserEmail");
 
                 // ... Handle file uploads logic (kept from original file) ...
@@ -110,10 +117,10 @@ namespace Prog7312_App.Controllers
             return View(request);
         }
 
-        // Updated signature/logic to use ReferenceNumber for efficient BST lookup
+        // Updated signature/logic to use ReferenceNumber for efficient AVL lookup
         public IActionResult ReportSuccess(string referenceNumber)
         {
-            // Use the BST for efficient lookup by unique identifier (O(log n) average)
+            // Use the AVL Tree for efficient lookup by unique identifier (O(log n))
             var request = _serviceRequestTree.Find(referenceNumber);
             if (request == null)
             {
@@ -126,6 +133,7 @@ namespace Prog7312_App.Controllers
         // Action for looking up request by reference number (tracking requirement)
         public IActionResult GetRequestByReference(string referenceNumber)
         {
+            // Use the AVL Tree for efficient lookup by unique identifier (O(log n))
             var request = _serviceRequestTree.Find(referenceNumber);
             if (request != null)
             {
@@ -138,7 +146,7 @@ namespace Prog7312_App.Controllers
         {
             var userEmail = HttpContext.Session.GetString("UserEmail");
             
-            // Get all requests using In-Order Traversal from BST for a sorted list
+            // Get all requests using In-Order Traversal from AVL Tree for a sorted list
             var allRequests = _serviceRequestTree.InOrderTraversal();
             
             if (!string.IsNullOrEmpty(userEmail))
@@ -166,15 +174,17 @@ namespace Prog7312_App.Controllers
                 localQueue.Enqueue(request, request.Priority);
             }
             
-            // 2. Dequeue all to get them in priority order
+            // 2. Dequeue all to get them in priority order (demonstrates heap property)
             var sortedList = new List<ServiceRequest>();
-            while (localQueue.TryDequeue(out ServiceRequest? request, out int priority))
+            // Using TryDequeue with the non-nullable ServiceRequest type
+            while (localQueue.TryDequeue(out ServiceRequest request, out int priority)) 
             {
-                // Null check for safety
-                if(request != null)
-                {
-                    sortedList.Add(request);
-                }
+                 // Since ServiceRequest is a class (reference type), default(ServiceRequest) is null.
+                 // We add the dequeued request directly.
+                 if (request != null)
+                 {
+                     sortedList.Add(request);
+                 }
             }
             
             ViewData["Title"] = "Priority Requests (Heap Demonstration)";
@@ -182,18 +192,16 @@ namespace Prog7312_App.Controllers
             return View("ViewRequests", sortedList); 
         }
 
-        // **NEW: Action to demonstrate Graph Traversal and MST**
+        // **Action to demonstrate Graph Traversal and MST**
         public IActionResult ViewRouteOptimization()
         {
             ViewData["Title"] = "Route Optimization Demo (Graph Structures)";
             
             // 1. Graph Traversal Demo (BFS)
-            // Shows the order a worker might check sites near the DEPOT
             var bfsResult = _serviceRouteGraph.BreadthFirstSearch("DEPOT");
             ViewData["BFS"] = bfsResult;
 
-            // 2. Minimum Spanning Tree (MST) Demo
-            // Shows the cheapest way to connect all service points/locations
+            // 2. Minimum Spanning Tree (MST) Demo (Prim's Algorithm)
             var mstResult = _serviceRouteGraph.GetMinimumSpanningTree("DEPOT");
             ViewData["MST"] = mstResult;
             

@@ -1,3 +1,5 @@
+// File: Prog7312-App/Models/DataStructures/CustomPriorityQueue.cs
+
 /**
  * CustomPriorityQueue<T>
  * ----------------------
@@ -6,24 +8,17 @@
  * priority (lower value = higher priority). The class provides operations including Enqueue, 
  * Dequeue, Peek, TryDequeue, TryPeek, Clear, and enumeration. The queue uses a binary heap 
  * for efficient priority-based operations.
- * 
- * Author: GeeksforGeeks Contributors
- * Reference: GeeksforGeeks (2023). "Priority Queue using Binary Heap."
- * Available at: https://www.geeksforgeeks.org/priority-queue-using-binary-heap/
  */
 
 using System.Collections;
+using System;
 
 namespace Prog7312_App.Models.DataStructures
 {
+    // Assuming CustomDynamicArray is defined elsewhere and acts like a list/array.
     public class CustomPriorityQueue<T> : IEnumerable<(T Item, int Priority)>
     {
-        private CustomDynamicArray<(T Item, int Priority)> _heap;
-
-        public CustomPriorityQueue()
-        {
-            _heap = new CustomDynamicArray<(T Item, int Priority)>();
-        }
+        private CustomDynamicArray<(T Item, int Priority)> _heap = new CustomDynamicArray<(T Item, int Priority)>();
 
         public int Count => _heap.Count;
 
@@ -70,7 +65,10 @@ namespace Prog7312_App.Models.DataStructures
             return _heap[0].Priority;
         }
 
-        public bool TryDequeue(out T? result, out int priority)
+        /**
+         * FIX: Changed 'out T? result' to 'out T result' to fix the non-nullable struct conversion error.
+         */
+        public bool TryDequeue(out T result, out int priority)
         {
             if (_heap.Count == 0)
             {
@@ -84,7 +82,10 @@ namespace Prog7312_App.Models.DataStructures
             return true;
         }
 
-        public bool TryPeek(out T? result, out int priority)
+        /**
+         * FIX: Changed 'out T? result' to 'out T result' to align with TryDequeue and T being a struct.
+         */
+        public bool TryPeek(out T result, out int priority)
         {
             if (_heap.Count == 0)
             {
@@ -152,7 +153,7 @@ namespace Prog7312_App.Models.DataStructures
             return _heap.GetEnumerator();
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }

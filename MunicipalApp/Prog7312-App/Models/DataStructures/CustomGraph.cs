@@ -1,3 +1,5 @@
+// File: Prog7312-App/Models/DataStructures/CustomGraph.cs
+
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,12 +8,21 @@ namespace Prog7312_App.Models.DataStructures
     /**
      * CustomGraph<T>
      * -----------------
-     * Implements a simple weighted, undirected graph using an Adjacency List.
-     * Contains methods for Breadth-First Search (Graph Traversal) and a basic
-     * Minimum Spanning Tree (MST) algorithm demonstration.
+     * Implements a weighted, undirected graph using an Adjacency List.
+     * Contains methods for Breadth-First Search (Graph Traversal) and a correct
+     * Minimum Spanning Tree (MST) implementation using Prim's algorithm, satisfying 
+     * the graph and MST requirements.
      */
     public class CustomGraph<T> where T : notnull
     {
+        // Tuple structure for edges in the MST result: (Node1, Node2, Weight)
+        public struct Edge
+        {
+            public T Node1;
+            public T Node2;
+            public int Weight;
+        }
+
         public Dictionary<T, List<(T Neighbor, int Weight)>> AdjacencyList { get; } = new();
 
         public void AddNode(T node)
@@ -26,8 +37,12 @@ namespace Prog7312_App.Models.DataStructures
         {
             AddNode(node1);
             AddNode(node2);
-            AdjacencyList[node1].Add((node2, weight));
-            AdjacencyList[node2].Add((node1, weight)); // Undirected graph
+            // Ensure edge is added only if it doesn't exist to prevent duplicates
+            if (!AdjacencyList[node1].Any(e => e.Neighbor.Equals(node2)))
+                AdjacencyList[node1].Add((node2, weight));
+            
+            if (!AdjacencyList[node2].Any(e => e.Neighbor.Equals(node1)))
+                AdjacencyList[node2].Add((node1, weight)); // Undirected graph
         }
 
         // 1. Graph Traversal: Breadth-First Search (BFS)
@@ -59,42 +74,72 @@ namespace Prog7312_App.Models.DataStructures
             return traversalOrder;
         }
 
-        // 2. Minimum Spanning Tree (MST) - Conceptual demonstration using a simplified Kruskal's idea
-        public List<(T Node1, T Node2, int Weight)> GetMinimumSpanningTree(T startNode)
+        // 2. Minimum Spanning Tree (MST) - Prim's Algorithm (Utilizes Priority Queue)
+        public List<Edge> GetMinimumSpanningTree(T startNode)
         {
-            var result = new List<(T, T, int)>();
-            var allEdges = new List<(T Node1, T Node2, int Weight)>();
+            if (!AdjacencyList.ContainsKey(startNode)) 
+                return new List<Edge>();
+
+            var resultMst = new List<Edge>();
+            // Use CustomPriorityQueue (Min-Heap) to efficiently get the minimum weight edge
+            var pq = new CustomPriorityQueue<Edge>(); 
+            var visitedNodes = new HashSet<T>();
+
+            // 1. Start with the initial node
+            visitedNodes.Add(startNode);
             
-            // Collect all unique edges
-            foreach (var node in AdjacencyList.Keys)
+            // 2. Add all edges from the start node to the Priority Queue
+            foreach (var (neighbor, weight) in AdjacencyList[startNode])
             {
-                foreach (var (neighbor, weight) in AdjacencyList[node])
+                pq.Enqueue(new Edge { Node1 = startNode, Node2 = neighbor, Weight = weight }, weight);
+            }
+
+            // 3. Continue until all nodes are included in the MST (or PQ is empty)
+            while (pq.Count > 0 && resultMst.Count < AdjacencyList.Count - 1)
+            {
+                // FIX: Use non-nullable 'Edge' struct for the out parameter
+                Edge currentEdge; 
+                
+                // Get the lightest edge from the Priority Queue
+                if (!pq.TryDequeue(out currentEdge, out int priority))
                 {
-                    if (node.GetHashCode() < neighbor.GetHashCode()) 
+                    continue;
+                }
+                
+                // Determine which of the two nodes is the 'new' node outside the MST
+                T nodeU = currentEdge.Node1;
+                T nodeV = currentEdge.Node2;
+                T newNode;
+                
+                if (visitedNodes.Contains(nodeU) && !visitedNodes.Contains(nodeV))
+                {
+                    newNode = nodeV;
+                }
+                else if (visitedNodes.Contains(nodeV) && !visitedNodes.Contains(nodeU))
+                {
+                    newNode = nodeU;
+                }
+                else
+                {
+                    // This edge would create a cycle, so we skip it.
+                    continue;
+                }
+                
+                // Add the edge and the new node to the MST
+                resultMst.Add(currentEdge); 
+                visitedNodes.Add(newNode);
+                
+                // Add all unvisited neighbors of the new node to the Priority Queue
+                foreach (var (neighbor, weight) in AdjacencyList[newNode])
+                {
+                    if (!visitedNodes.Contains(neighbor))
                     {
-                        allEdges.Add((node, neighbor, weight));
+                        pq.Enqueue(new Edge { Node1 = newNode, Node2 = neighbor, Weight = weight }, weight);
                     }
                 }
             }
-            // Sort edges by weight
-            allEdges = allEdges.OrderBy(e => e.Weight).ToList();
 
-            var nodesInMst = new HashSet<T>();
-            
-            foreach (var edge in allEdges)
-            {
-                // Simplified MST logic: ensures connection to the network
-                if (result.Count < AdjacencyList.Count - 1 && (!nodesInMst.Contains(edge.Node1) || !nodesInMst.Contains(edge.Node2)))
-                {
-                    result.Add(edge);
-                    nodesInMst.Add(edge.Node1);
-                    nodesInMst.Add(edge.Node2);
-                }
-
-                if (result.Count == AdjacencyList.Count - 1) break;
-            }
-            
-            return result; 
+            return resultMst;
         }
     }
 }
